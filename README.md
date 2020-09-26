@@ -5,6 +5,8 @@ En la carpeta src se encuentra todo el proyecto
   1. generar proyecto: npm init --y
   
   2. instalamos librerias: mpm i express mongoose
+  
+  3. estructuramos el proyecto
              
 # ¿Que es config.URI?  
 En el archivo config encontrariamos la URI_DBMONGO.
