@@ -1,12 +1,13 @@
-# RestAPI-NodeMongo
-En la carpeta src se encuentra todo el proyecto
+# Node CRUD MongoDB
 
-# Pasos:
-  1. generar proyecto: npm init --y
+This is a simple CRUD application using MongoDB.
+
+
+# Step:
+  1. Initialize your MongoDB service
   
-  2. instalamos librerias: mpm i express mongoose
+  ````Windows```
   
-  3. estructuramos el proyecto
-             
-# ¿Que es config.URI?  
-En el archivo config encontrariamos la URI_DBMONGO.
+  ```
+    mongod
+  ```
