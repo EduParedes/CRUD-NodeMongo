@@ -6,7 +6,7 @@ This is a simple CRUD application using MongoDB.
 # Step:
   1. Initialize your MongoDB service
   
-  ```Windows```
+  ```Windows``` Command propmt
   
   ```
     mongod
