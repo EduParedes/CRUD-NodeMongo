@@ -17,8 +17,13 @@ This is a simple CRUD application using MongoDB.
   ```
    docker run --name mymongo -p 27017:27017 -d mongo
   ```
+
+  2. Create a ```.env``` file and set the following variable environments
+
+  ```MONGODB_LOCALHOST``` ```MONGODB_DATABASE```
+
   
-  2. Start CRUD app 
+  3. Start CRUD app
   
   ```
    npm run dev
