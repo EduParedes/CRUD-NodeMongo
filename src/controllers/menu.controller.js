@@ -39,10 +39,15 @@ const deleteMenu = async(req,res)=>{
     res.json({msg:'Menu Deleted'})
 }
 
+const renderMenus = (req,res)=>{
+    res.render('menus/menus',{title:'Menus Delivery'})
+}
+
 module.exports = {
     getMenus,
     getMenu,
     createMenu,
     editMenu,
-    deleteMenu
+    deleteMenu,
+    renderMenus
 }

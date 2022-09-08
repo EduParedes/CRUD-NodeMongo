@@ -1,18 +1,29 @@
 require('dotenv').config();
 const express = require('express');
-require('./database')
+const {engine} = require('express-handlebars');
+const path = require('path');
+
 
 //Initialize:
 const app = express();
+//require('./database')
 
 //Settings:
 app.set('port',process.env.PORT || 3000);
+app.set('views',path.join(__dirname, 'views'));
+app.set('view engine','.hbs')
+app.engine('.hbs',engine({
+  defaultLayout:'main',
+  layoutsDir:path.join(__dirname,'views/layout'),
+  partialsDir:path.join(__dirname,'views/partials'),
+  extname:'.hbs'
+}));
 
 //Middleware:
 app.use(express.json());
 app.use(express.urlencoded({extended:false}));
 
 //Routes:
-app.use('/api/menus',require('./routes/menu.route'));
+app.use(require('./routes/menu.routes'));
 
 module.exports = app;
