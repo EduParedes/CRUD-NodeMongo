@@ -2,7 +2,7 @@ require('dotenv').config();
 const express = require('express');
 const {engine} = require('express-handlebars');
 const path = require('path');
-
+const methodOverride = require('method-override');
 
 //Initialize:
 const app = express();
@@ -22,6 +22,7 @@ app.engine('.hbs',engine({
 //Middleware:
 app.use(express.json());
 app.use(express.urlencoded({extended:false}));
+app.use(methodOverride('_method'));
 
 //Routes:
 app.use(require('./routes/menu.routes'));
