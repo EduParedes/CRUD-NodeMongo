@@ -6,7 +6,7 @@ const path = require('path');
 
 //Initialize:
 const app = express();
-//require('./database')
+//require('./database');
 
 //Settings:
 app.set('port',process.env.PORT || 3000);
@@ -25,5 +25,10 @@ app.use(express.urlencoded({extended:false}));
 
 //Routes:
 app.use(require('./routes/menu.routes'));
+
+//404 page
+app.get('*',(req,res)=>{
+  res.render('404',{title:'Page not Found'})
+})
 
 module.exports = app;
