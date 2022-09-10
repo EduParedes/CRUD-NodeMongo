@@ -43,11 +43,16 @@ const renderMenus = (req,res)=>{
     res.render('menus/menus',{title:'Menus Delivery'})
 }
 
+const renderFormMenu = (req,res)=>{
+    res.render('menus/form-menu',{title:'New menu'})
+}
+
 module.exports = {
     getMenus,
     getMenu,
     createMenu,
     editMenu,
     deleteMenu,
-    renderMenus
+    renderMenus,
+    renderFormMenu
 }
