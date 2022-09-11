@@ -11,5 +11,6 @@ router.delete('/api/menus/:id',menusCtrl.deleteMenu)
 
 router.get('/menus',menusCtrl.renderMenus)
 router.get('/menus/new',menusCtrl.renderFormMenu)
+router.post('/menus/new',menusCtrl.addNewMenu)
 
 module.exports = router;

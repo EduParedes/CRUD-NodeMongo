@@ -47,6 +47,11 @@ const renderFormMenu = (req,res)=>{
     res.render('menus/form-menu',{title:'New menu'})
 }
 
+const addNewMenu = (req,res)=>{
+    console.log(req.body);
+    res.redirect('/menus')
+}
+
 module.exports = {
     getMenus,
     getMenu,
@@ -54,5 +59,6 @@ module.exports = {
     editMenu,
     deleteMenu,
     renderMenus,
-    renderFormMenu
+    renderFormMenu,
+    addNewMenu
 }
