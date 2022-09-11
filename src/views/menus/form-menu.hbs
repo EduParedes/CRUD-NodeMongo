@@ -1,13 +1,15 @@
 <div>
   <h1>New Menu</h1>
-  <div>
-    <input type="text" placeholder="starte"/>
-  </div>
-  <div>
-    <input type="text" placeholder="main"/>
-  </div>
-  <div>
-    <input type="text" placeholder="dessert"/>
-  </div>
-  <button type="submit">Add menu</button>
+  <form action="/menus/new" method="POST">
+    <div>
+      <input type="text" name="starter" placeholder="starte" />
+    </div>
+    <div>
+      <input type="text" name="main" placeholder="main"/>
+    </div>
+    <div>
+      <input type="text" name="dessert" placeholder="dessert"/>
+    </div>
+    <button type="submit">Add menu</button>
+  </form>
 </div>
