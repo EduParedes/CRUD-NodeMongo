@@ -6,7 +6,7 @@ const methodOverride = require('method-override');
 
 //Initialize:
 const app = express();
-//require('./database');
+require('./database');
 
 //Settings:
 app.set('port',process.env.PORT || 3000);
