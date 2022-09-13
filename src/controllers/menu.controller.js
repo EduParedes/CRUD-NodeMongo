@@ -40,8 +40,11 @@ const deleteMenu = async(req,res)=>{
 
 
 const renderMenus = async (req,res)=>{
+    const menus = await Menu.find();
+    console.log(menus)
     res.render('menus/menus',{
-        title:'Menus Delivery'})
+        title:'Menus Delivery',
+        menus:menus.map(menu=>menu.toJSON())})
 }
 
 const renderFormMenu = (req,res)=>{
