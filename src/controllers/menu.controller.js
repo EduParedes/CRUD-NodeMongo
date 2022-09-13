@@ -1,6 +1,5 @@
 const Menu = require('../model/Menu')
 
-
 const getMenus = async (req,res)=>{
     const menus = await Menu.find();
     res.json(menus);
@@ -39,16 +38,21 @@ const deleteMenu = async(req,res)=>{
     res.json({msg:'Menu Deleted'})
 }
 
-const renderMenus = (req,res)=>{
-    res.render('menus/menus',{title:'Menus Delivery'})
+
+const renderMenus = async (req,res)=>{
+    res.render('menus/menus',{
+        title:'Menus Delivery'})
 }
 
 const renderFormMenu = (req,res)=>{
     res.render('menus/form-menu',{title:'New menu'})
 }
 
-const addNewMenu = (req,res)=>{
-    console.log(req.body);
+const addNewMenu = async (req,res)=>{
+    const newMenu = new Menu(req.body);
+    console.log(newMenu);
+    await newMenu.save();
+    console.log("New menu added")
     res.redirect('/menus')
 }
 
