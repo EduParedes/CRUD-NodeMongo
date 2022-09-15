@@ -37,3 +37,10 @@ const deleteMenu = async(req,res)=>{
   await Menu.findByIdAndDelete(req.params.id);
   res.json({msg:'Menu Deleted'})
 }
+
+module.exports = {
+  getMenus,
+  getMenu,
+  deleteMenu,
+  editMenu
+}
