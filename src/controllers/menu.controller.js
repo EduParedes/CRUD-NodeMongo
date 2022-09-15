@@ -48,7 +48,14 @@ const renderMenus = async (req,res)=>{
 }
 
 const renderFormMenu = (req,res)=>{
-    res.render('menus/form-menu',{title:'New menu'})
+    res.render('menus/form-menu',{title:'New Menu'})
+}
+
+const renderEditFormMenu = async (req,res)=>{
+    const menu = await Menu.findById(req.params.id).lean();
+    res.render('menus/edit-menu',{
+        title:'Edit Menu',
+        menu})
 }
 
 const addNewMenu = async (req,res)=>{
@@ -65,6 +72,12 @@ const deleteMenuById = async (req,res)=>{
     res.redirect('/menus');
 }
 
+const updateMenu = async (req,res)=>{
+    const {id} = req.params;
+    await Menu.findByIdAndUpdate(id,req.body);
+    res.redirect('/menus');
+}
+
 module.exports = {
     getMenus,
     getMenu,
@@ -74,5 +87,7 @@ module.exports = {
     renderMenus,
     renderFormMenu,
     addNewMenu,
-    deleteMenuById
+    deleteMenuById,
+    renderEditFormMenu,
+    updateMenu
 }

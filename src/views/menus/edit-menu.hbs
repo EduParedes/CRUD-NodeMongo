@@ -1,0 +1,19 @@
+<div>
+  <h1>Edit Menu</h1>
+  <form action="/menus/edit/{{menu._id}}?_method=PUT" method="POST">
+    <input type="hidden" name="method" value="PUT"/>
+    <div>
+      <input type="text" name="starter" value="{{menu.starter}}" placeholder="starter" />
+    </div>
+    <div>
+      <input type="text" name="main" value="{{menu.main}}" placeholder="main"/>
+    </div>
+    <div>
+      <input type="text" name="dessert" value="{{menu.dessert}}" placeholder="dessert"/>
+    </div>
+    <div>
+      <input type="text" name="price" value="{{menu.price}}" placeholder="price"/>
+    </div>
+    <button type="submit">Update Menu</button>
+  </form>
+</div>
