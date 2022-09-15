@@ -6,5 +6,9 @@
     <p>{{main}}</p>
     <p>{{dessert}}</p>
     <p> S./{{price}}</p>
+    <form action="/menus/delete/{{_id}}?_method=DELETE" method="POST">
+      <input type="hidden" name="method" value="DELETE"/>
+        <button type="submit">Delete</button>
+    </form>
   </div>
 {{/each}}

@@ -39,9 +39,9 @@ const deleteMenu = async(req,res)=>{
 }
 
 
+// Application UI
 const renderMenus = async (req,res)=>{
     const menus = await Menu.find();
-    console.log(menus)
     res.render('menus/menus',{
         title:'Menus Delivery',
         menus:menus.map(menu=>menu.toJSON())})
@@ -59,6 +59,12 @@ const addNewMenu = async (req,res)=>{
     res.redirect('/menus')
 }
 
+const deleteMenuById = async (req,res)=>{
+    const id = req.params.id;
+    await Menu.findByIdAndDelete(id);
+    res.redirect('/menus');
+}
+
 module.exports = {
     getMenus,
     getMenu,
@@ -67,5 +73,6 @@ module.exports = {
     deleteMenu,
     renderMenus,
     renderFormMenu,
-    addNewMenu
+    addNewMenu,
+    deleteMenuById
 }
