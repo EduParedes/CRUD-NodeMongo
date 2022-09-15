@@ -40,11 +40,6 @@ const updateMenu = async (req,res)=>{
 }
 
 module.exports = {
-    getMenus,
-    getMenu,
-    createMenu,
-    editMenu,
-    deleteMenu,
     renderMenus,
     renderFormMenu,
     addNewMenu,

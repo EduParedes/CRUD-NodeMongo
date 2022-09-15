@@ -8,17 +8,17 @@ const getMenus = async (req,res)=>{
 const createMenu = async (req,res)=>{
   const menu = new Menu({
       starter:req.body.starter,
-      mean:req.body.mean,
+      main:req.body.main,
       dessert:req.body.dessert,
       price:req.body.price,
   })
   await menu.save();
-  res.json({msg:'Menu Saved'})
+  res.status(200).json({msg:'Menu Saved'})
 }
 
 const getMenu = async (req,res)=>{
   const menu = await Menu.findById(req.params.id);
-  res.json(menu);
+  res.status(200).json(menu);
 }
 
 const editMenu = async (req,res)=>{
@@ -35,7 +35,7 @@ const editMenu = async (req,res)=>{
 
 const deleteMenu = async(req,res)=>{
   await Menu.findByIdAndDelete(req.params.id);
-  res.json({msg:'Menu Deleted'})
+  res.status(200).json({msg:'Menu Deleted'})
 }
 
 module.exports = {
