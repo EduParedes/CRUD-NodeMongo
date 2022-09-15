@@ -41,6 +41,7 @@ const deleteMenu = async(req,res)=>{
 module.exports = {
   getMenus,
   getMenu,
+  createMenu,
   deleteMenu,
   editMenu
 }
