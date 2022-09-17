@@ -41,8 +41,28 @@ const updateMenu = async (req,res)=>{
 
 const searchMenu = async (req,res)=>{
     const {value,type_menu} = req.body;
-    console.log(value,type_menu)
-    res.redirect('/menus')
+    if (type_menu === 'starter'){
+        const menus = await Menu.find({"starter":{"$regex":`${value}`,"$options":"i"}})
+        res.render('menus/menus',{
+            title:'Menus Delivery',
+            menus:menus.map(menu=>menu.toJSON())
+        })
+    }
+    if (type_menu === 'main'){
+        const menus = await Menu.find({"main":{"$regex":`${value}`,"$options":"i"}})
+        res.render('menus/menus',{
+            title:'Menus Delivery',
+            menus:menus.map(menu=>menu.toJSON())
+        })
+    }
+    if (type_menu === 'dessert'){
+        const menus = await Menu.find({"dessert":{"$regex":`${value}`,"$options":"i"}})
+        res.render('menus/menus',{
+            title:'Menus Delivery',
+            menus:menus.map(menu=>menu.toJSON())
+        })
+    }
+    
 }
 
 module.exports = {
