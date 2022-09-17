@@ -3,6 +3,8 @@ const express = require('express');
 const {engine} = require('express-handlebars');
 const path = require('path');
 const methodOverride = require('method-override');
+const flash = require('connect-flash');
+const session = require('express-session');
 
 //Initialize:
 const app = express();
@@ -23,6 +25,12 @@ app.engine('.hbs',engine({
 app.use(express.json());
 app.use(express.urlencoded({extended:false}));
 app.use(methodOverride('_method'));
+app.use(flash());
+app.use(session({
+  secret:'secret',
+  resave:true,
+  saveUninitialized:true
+}))
 
 //Routes:
 app.use(require('./routes/menu.routes'));
@@ -30,6 +38,13 @@ app.use(require('./routes/menu.routes'));
 //404 page
 app.get('*',(req,res)=>{
   res.render('404',{title:'Page not Found'})
+})
+
+//Global variables
+app.use((req,res,next)=>{
+  res.locals.success_msg = req.flash('success_msg');
+  res.locals.error_msg = req.flash('error_msg');
+  next();
 })
 
 module.exports = app;
