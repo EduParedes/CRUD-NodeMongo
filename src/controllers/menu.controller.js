@@ -1,6 +1,5 @@
 const Menu = require('../model/Menu')
 
-// Application UI
 const renderMenus = async (req,res)=>{
     const menus = await Menu.find();
     res.render('menus/menus',{
@@ -21,9 +20,7 @@ const renderEditFormMenu = async (req,res)=>{
 
 const addNewMenu = async (req,res)=>{
     const newMenu = new Menu(req.body);
-    console.log(newMenu);
     await newMenu.save();
-    console.log("New menu added")
     res.redirect('/menus')
 }
 
@@ -61,8 +58,7 @@ const searchMenu = async (req,res)=>{
             title:'Menus Delivery',
             menus:menus.map(menu=>menu.toJSON())
         })
-    }
-    
+    } 
 }
 
 module.exports = {
