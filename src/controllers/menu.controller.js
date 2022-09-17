@@ -21,18 +21,21 @@ const renderEditFormMenu = async (req,res)=>{
 const addNewMenu = async (req,res)=>{
     const newMenu = new Menu(req.body);
     await newMenu.save();
+    req.flash('success_msg','New menu added successfully')
     res.redirect('/menus')
 }
 
 const deleteMenuById = async (req,res)=>{
     const id = req.params.id;
     await Menu.findByIdAndDelete(id);
+    req.flash('success_msg','Menu deleted successfully')
     res.redirect('/menus');
 }
 
 const updateMenu = async (req,res)=>{
     const {id} = req.params;
     await Menu.findByIdAndUpdate(id,req.body);
+    req.flash('success_msg','Menu updated successfully')
     res.redirect('/menus');
 }
 
