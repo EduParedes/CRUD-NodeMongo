@@ -32,6 +32,13 @@ app.use(session({
   saveUninitialized:true
 }))
 
+//Global variables
+app.use((req,res,next)=>{
+  res.locals.success_msg = req.flash('success_msg');
+  res.locals.error_msg = req.flash('error_msg');
+  next();
+})
+
 //Routes:
 app.use(require('./routes/menu.routes'));
 
@@ -40,11 +47,6 @@ app.get('*',(req,res)=>{
   res.render('404',{title:'Page not Found'})
 })
 
-//Global variables
-app.use((req,res,next)=>{
-  res.locals.success_msg = req.flash('success_msg');
-  res.locals.error_msg = req.flash('error_msg');
-  next();
-})
+
 
 module.exports = app;
