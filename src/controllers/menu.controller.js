@@ -39,11 +39,18 @@ const updateMenu = async (req,res)=>{
     res.redirect('/menus');
 }
 
+const searchMenu = async (req,res)=>{
+    const {value,type_menu} = req.body;
+    console.log(value,type_menu)
+    res.redirect('/menus')
+}
+
 module.exports = {
     renderMenus,
     renderFormMenu,
     addNewMenu,
     deleteMenuById,
     renderEditFormMenu,
-    updateMenu
+    updateMenu,
+    searchMenu
 }
