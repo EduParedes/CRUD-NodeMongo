@@ -47,6 +47,7 @@ app.get('*',(req,res)=>{
   res.render('404',{title:'Page not Found'})
 })
 
-
+// Static Files
+app.use(express.static(path.join(__dirname,'static')))
 
 module.exports = app;
