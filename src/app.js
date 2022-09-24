@@ -5,6 +5,7 @@ const path = require('path');
 const methodOverride = require('method-override');
 const flash = require('connect-flash');
 const session = require('express-session');
+const multer = require('multer');
 const {v4:uuidv4} = require('uuid');
 
 //Initialize:

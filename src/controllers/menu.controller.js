@@ -1,7 +1,10 @@
-const Menu = require('../model/Menu')
+const Menu = require('../model/Menu');
+const fs = require('fs');
+const path = require('path');
 
 const renderMenus = async (req,res)=>{
     const menus = await Menu.find();
+    console.log(menus);
     res.render('menus/menus',{
         title:'Menus Delivery',
         menus:menus.map(menu=>menu.toJSON())})
@@ -19,7 +22,18 @@ const renderEditFormMenu = async (req,res)=>{
 }
 
 const addNewMenu = async (req,res)=>{
-    const newMenu = new Menu(req.body);
+    const publicPath = path.join(__dirname,'../public')
+    const menu = {
+        starter:req.body.starter,
+        main:req.body.main,
+        dessert:req.body.dessert,
+        image:{
+            data: fs.readFileSync(path.join(publicPath, '/uploads/' + req.file.filename)),
+            contentType: req.file.mimetype
+        },
+        price:req.body.price
+    }
+    const newMenu = new Menu(menu);
     await newMenu.save();
     req.flash('success_msg','New menu added successfully')
     res.redirect('/menus')
