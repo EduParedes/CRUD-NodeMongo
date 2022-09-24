@@ -1,6 +1,6 @@
 <div>
   <h1>New Menu</h1>
-  <form action="/menus/new" method="POST">
+  <form action="/menus/new" method="POST" enctype="multipart/form-data">
     <div>
       <input type="text" name="starter" placeholder="starter" />
     </div>
@@ -11,7 +11,7 @@
       <input type="text" name="dessert" placeholder="dessert"/>
     </div>
     <div>
-      <!--<input type="file" name="image" placeholder="Select an image"/>-->
+      <input type="file" name="image" placeholder="Select an image"/>
     </div>
     <div>
       <input type="text" name="price" placeholder="price"/>

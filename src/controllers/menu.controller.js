@@ -1,6 +1,5 @@
 const Menu = require('../model/Menu');
-const path = require('path');
-const fs = require('fs');
+const {uploadImage} = require('../cloudinary');
 
 const renderMenus = async (req,res)=>{
     const menus = await Menu.find();
@@ -22,7 +21,14 @@ const renderEditFormMenu = async (req,res)=>{
 
 const addNewMenu = async (req,res)=>{
     const newMenu = new Menu(req.body);
+    
+    if (req.files?.image){
+        const result = await uploadImage(req.files.image.tempFilePath);
+        console.log(result)
+    }
+    
     await newMenu.save();
+
     req.flash('success_msg','New menu added successfully')
     res.redirect('/menus')
 }
