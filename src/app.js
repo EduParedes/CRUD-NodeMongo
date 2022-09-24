@@ -5,8 +5,6 @@ const path = require('path');
 const methodOverride = require('method-override');
 const flash = require('connect-flash');
 const session = require('express-session');
-const multer = require('multer');
-const {v4:uuidv4} = require('uuid');
 
 //Initialize:
 const app = express();
@@ -34,28 +32,6 @@ app.use(session({
   saveUninitialized:true
 }))
 
-//Multer
-const storage = multer.diskStorage({
-  destination:path.join(__dirname,'public/uploads'),
-  filename: (req,file,cb)=>{
-    cb(null,uuidv4() + path.extname(file.originalname).toLocaleLowerCase());
-  }
-})
-
-app.use(multer({
-  storage,
-  des:path.join(__dirname,'public/uploads'),
-  limits:{filezise:1000000},
-  fileFilter:(req,file,cb)=>{
-    const filetypes = /jpeg|jpg|png|gif/;
-    const mimetype = filetypes.test(file.mimetype);
-    const extname = filetypes.test(path.extname(file.originalname));
-    if (mimetype && extname){
-      return cb(null,true);
-    }
-    cb("Error:El archivo debe ser una imagen valida");
-  }
-}).single('image'));
 
 //Global variables
 app.use((req,res,next)=>{
