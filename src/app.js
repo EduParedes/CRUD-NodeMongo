@@ -5,6 +5,7 @@ const path = require('path');
 const methodOverride = require('method-override');
 const flash = require('connect-flash');
 const session = require('express-session');
+const fileUpload = require('express-fileupload');
 
 //Initialize:
 const app = express();
@@ -30,6 +31,10 @@ app.use(session({
   secret:'secret',
   resave:true,
   saveUninitialized:true
+}))
+app.use(fileUpload({
+  useTempFiles:true,
+  tempFileDir:'./uploads/'
 }))
 
 
