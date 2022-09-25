@@ -3,6 +3,7 @@ const {uploadImage} = require('../cloudinary');
 
 const renderMenus = async (req,res)=>{
     const menus = await Menu.find();
+    console.log(menus)
     res.render('menus/menus',{
         title:'Menus Delivery',
         menus:menus.map(menu=>menu.toJSON())})
@@ -24,7 +25,10 @@ const addNewMenu = async (req,res)=>{
     
     if (req.files?.image){
         const result = await uploadImage(req.files.image.tempFilePath);
-        console.log(result)
+        newMenu.image = {
+            public_id:result.public_id,
+            secure_url:result.secure_url
+        }
     }
     
     await newMenu.save();
