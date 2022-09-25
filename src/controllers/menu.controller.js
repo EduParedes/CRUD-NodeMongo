@@ -1,5 +1,6 @@
 const Menu = require('../model/Menu');
-const {uploadImage} = require('../cloudinary');
+const {uploadImage,deleteImage} = require('../cloudinary');
+const fs = require('fs-extra');
 
 const renderMenus = async (req,res)=>{
     const menus = await Menu.find();
@@ -31,6 +32,7 @@ const addNewMenu = async (req,res)=>{
         }
     }
     
+    await fs.unlink(req.files.image.tempFilePath)
     await newMenu.save();
 
     req.flash('success_msg','New menu added successfully')
@@ -39,7 +41,8 @@ const addNewMenu = async (req,res)=>{
 
 const deleteMenuById = async (req,res)=>{
     const id = req.params.id;
-    await Menu.findByIdAndDelete(id);
+    const menu = await Menu.findByIdAndDelete(id);
+    await deleteImage(menu.image.public_id)
     req.flash('success_msg','Menu deleted successfully')
     res.redirect('/menus');
 }
