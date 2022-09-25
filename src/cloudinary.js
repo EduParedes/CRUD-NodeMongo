@@ -7,7 +7,6 @@ cloudinary.config({
   api_key:CLOUDINARY_API_KEY,
   api_secret:CLOUDINARY_API_SECRET,
   secure:true
-
 })
 
 const uploadImage = async (filePath)=>{
