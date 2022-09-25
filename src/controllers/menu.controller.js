@@ -42,7 +42,10 @@ const addNewMenu = async (req,res)=>{
 const deleteMenuById = async (req,res)=>{
     const id = req.params.id;
     const menu = await Menu.findByIdAndDelete(id);
-    await deleteImage(menu.image.public_id)
+    if(menu.image?.public_id){
+        await deleteImage(menu.image.public_id)
+    }
+    
     req.flash('success_msg','Menu deleted successfully')
     res.redirect('/menus');
 }
