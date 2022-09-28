@@ -1,19 +1,29 @@
-<div>
+<div class="mt-4">
   <h1>Edit Menu</h1>
-  <form action="/menus/edit/{{menu._id}}?_method=PUT" method="POST">
-    <input type="hidden" name="method" value="PUT"/>
-    <div>
-      <input type="text" name="starter" value="{{menu.starter}}" placeholder="starter" />
+  <div class="col-md-4 offset-md-4">
+    <div class="card card-body">
+      <form action="/menus/edit/{{menu._id}}?_method=PUT" method="POST">
+        <input type="hidden" name="method" value="PUT"/>
+        <div class="mb-3">
+          <input class="form-control" type="text" name="starter" value="{{menu.starter}}" placeholder="starter" />
+        </div>
+        <div class="mb-3">
+          <input class="form-control" type="text" name="main" value="{{menu.main}}" placeholder="main"/>
+        </div>
+        <div class="mb-3">
+          <input class="form-control" type="text" name="dessert" value="{{menu.dessert}}" placeholder="dessert"/>
+        </div>
+        <div class="mb-3">
+          <input class="form-control" type="file" name="image" placeholder="Select an image"/>
+        </div>
+        <div class="mb-3">
+          <input class="form-control" type="text" name="price" value="{{menu.price}}" placeholder="price"/>
+        </div>
+        <div class="d-flex justify-content-end">
+          <button class="btn btn-primary" type="submit">Update Menu</button>
+        </div>
+      </form>
     </div>
-    <div>
-      <input type="text" name="main" value="{{menu.main}}" placeholder="main"/>
-    </div>
-    <div>
-      <input type="text" name="dessert" value="{{menu.dessert}}" placeholder="dessert"/>
-    </div>
-    <div>
-      <input type="text" name="price" value="{{menu.price}}" placeholder="price"/>
-    </div>
-    <button type="submit">Update Menu</button>
-  </form>
+  </div>
+  
 </div>
