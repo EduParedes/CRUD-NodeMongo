@@ -1,21 +1,26 @@
-<div>
+<div class="mt-4">
   <h1>New Menu</h1>
-  <form action="/menus/new" method="POST" enctype="multipart/form-data">
-    <div>
-      <input type="text" name="starter" placeholder="starter" />
+  <div class="col-md-4 offset-md-4">
+    <form action="/menus/new" method="POST" enctype="multipart/form-data">
+    <div class="mb-3">
+      <input class="form-control" type="text" name="starter" placeholder="starter" />
     </div>
-    <div>
-      <input type="text" name="main" placeholder="main"/>
+    <div class="mb-3">
+      <input class="form-control" type="text" name="main" placeholder="main"/>
     </div>
-    <div>
-      <input type="text" name="dessert" placeholder="dessert"/>
+    <div class="mb-3">
+      <input class="form-control" type="text" name="dessert" placeholder="dessert"/>
     </div>
-    <div>
-      <input type="file" name="image" placeholder="Select an image"/>
+    <div class="mb-3">
+      <input class="form-control" type="file" name="image" placeholder="Select an image"/>
     </div>
-    <div>
-      <input type="text" name="price" placeholder="price"/>
+    <div class="mb-3">
+      <input class="form-control" type="text" name="price" placeholder="price"/>
     </div>
-    <button type="submit">Add menu</button>
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-primary" type="submit">Add menu</button>
+    </div>
   </form>
+  </div>
+  
 </div>
