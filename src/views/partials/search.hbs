@@ -1,10 +1,23 @@
-<form action="/menus/search" method="POST">
-  <input type="text" name="value"/>
-  <input type="radio" id="starter" name="type_menu" value="starter"/>
-  <label for="starter">Starter</label>
-  <input type="radio" id="main" name="type_menu" value="main"/>
-  <label for="main">Main</label>
-  <input type="radio" id="dessert" name="type_menu" value="dessert"/>
-  <label for="dessert">Dessert</label>
-  <button type="submit">Search</button>
+<div class="mt-4 mb-4 d-md-flex justify-content-end">
+  <form class="row row-cols-lg-auto g-3 ml-auto" action="/menus/search" method="POST">
+  <div class="col">
+    <input class="form-control" type="text" name="value" placeholder="Search"/>
+  </div>
+  <div class="col mt-auto">
+    <input class="form-check-input" type="radio" id="starter" name="type_menu" value="starter"/>
+    <label class="form-check-label" for="starter">Starter</label>
+  </div>
+  <div class="col mt-auto">
+    <input class="form-check-input" type="radio" id="main" name="type_menu" value="main"/>
+    <label class="form-check-label" for="main">Main</label>
+  </div>
+  <div class="col mt-auto">
+    <input class="form-check-input" type="radio" id="dessert" name="type_menu" value="dessert"/>
+    <label class="form-check-label" for="dessert">Dessert</label>
+  </div>
+  <div class="col">
+    <button class="btn btn-primary" type="submit">Search</button>
+  </div>
+  
 </form>
+</div>
