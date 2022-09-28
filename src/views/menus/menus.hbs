@@ -1,20 +1,28 @@
-<h1>All menus</h1>
+<h1 class="mt-4">All menus</h1>
 
 {{>search}}
-
 {{>messages}}
 
-{{#each menus}}
-  <div>
-    <img src="{{image.secure_url}}">
-    <p>{{starter}}</p>
-    <p>{{main}}</p>
-    <p>{{dessert}}</p>
-    <p> S./{{price}}</p>
-    <form action="/menus/delete/{{_id}}?_method=DELETE" method="POST">
-      <input type="hidden" name="method" value="DELETE"/>
-        <button type="submit">Delete</button>
-    </form>
-    <a href="/menus/edit/{{_id}}">Edit</a>
+<div class="row">
+  {{#each menus}}
+  <div class="col-md-3">
+    <div class="card card-body">
+      <img class="img-fluid" src="{{image.secure_url}}">
+      <div class="mb-2 text-center fst-italic">
+        <p> <span class="fw-bold">Starter:</span> {{starter}}</p>
+        <p><span class="fw-bold">Main:</span> {{main}}</p>
+        <p><span class="fw-bold">Dessert:</span> {{dessert}}</p>
+        <h2 class="text-end mb-2"> S./{{price}}</h2>
+      </div>
+      <div class="d-flex justify-content-evenly">
+        <form action="/menus/delete/{{_id}}?_method=DELETE" method="POST">
+        <input type="hidden" name="method" value="DELETE"/>
+          <button class="btn btn-danger" type="submit">Delete</button>
+        </form>
+        <a class="btn btn-primary" href="/menus/edit/{{_id}}">Edit</a>
+      </div>
+    </div>
   </div>
 {{/each}}
+</div>
+
