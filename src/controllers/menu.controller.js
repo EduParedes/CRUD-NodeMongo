@@ -5,7 +5,7 @@ const fs = require('fs-extra');
 const renderMenus = async (req,res)=>{
     const menus = await Menu.find();
     res.render('menus/menus',{
-        title:'Menus Delivery',
+        title:'Menus Dashboard',
         menus:menus.map(menu=>menu.toJSON())})
 }
 
