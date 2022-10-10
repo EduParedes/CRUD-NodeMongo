@@ -17,7 +17,7 @@
       <div class="d-flex justify-content-evenly">
         <form action="/menus/delete/{{_id}}?_method=DELETE" method="POST">
         <input type="hidden" name="method" value="DELETE"/>
-          <button class="btn btn-danger" type="submit">Delete</button>
+          <button if="delete-menu" class="btn btn-danger" type="submit">Delete</button>
         </form>
         <a class="btn btn-primary" href="/menus/edit/{{_id}}">Edit</a>
       </div>
