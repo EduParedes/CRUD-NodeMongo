@@ -7,6 +7,16 @@
   {{#each menus}}
   <div class="col-md-3">
     <div class="card card-body">
+      <ul class="ms-auto navbar-nav">
+        <li class="navbar-item dropdown">
+          <a href="nav-link" href="#" id="menu-options" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <i class="fa-solid fa-ellipsis"></i>
+            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="menu-options">
+              <li><a class="dropdown-item" href="/menus/edit/{{_id}}">Edit</a></li>
+            </ul>
+          </a>
+        </li>
+      </ul>
       <img class="img-fluid" src="{{image.secure_url}}">
       <div class="mb-2 text-center fst-italic">
         <p> <span class="fw-bold">Starter:</span> {{starter}}</p>
@@ -19,7 +29,7 @@
         <input type="hidden" name="method" value="DELETE"/>
           <button id="delete-menu" class="btn btn-danger" type="submit">Delete</button>
         </form>
-        <a class="btn btn-primary" href="/menus/edit/{{_id}}">Edit</a>
+        
       </div>
     </div>
   </div>
