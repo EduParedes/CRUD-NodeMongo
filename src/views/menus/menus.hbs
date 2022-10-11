@@ -10,10 +10,12 @@
       <ul class="ms-auto navbar-nav">
         <li class="navbar-item dropdown">
           <a href="nav-link" href="#" id="menu-options" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            <i class="fa-solid fa-ellipsis"></i>
+            <i class="fa-solid fa-ellipsis text-dark"></i>
             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="menu-options">
-              <li><a class="dropdown-item" href="/menus/edit/{{_id}}">Edit</a></li>
-              <li><a class="dropdown-item" href="#!" id="delete-menu" data-id="{{_id}}">Delete</a></li>
+              <li>
+                <a class="dropdown-item" href="/menus/edit/{{_id}}"> <i class="fa-solid fa-pen mx-2"></i>Edit</a>
+              </li>
+              <li><a class="dropdown-item" href="#!" id="delete-menu" data-id="{{_id}}"><i class="fa-solid fa-trash mx-2"></i>Delete</a></li>
             </ul>
           </a>
         </li>
