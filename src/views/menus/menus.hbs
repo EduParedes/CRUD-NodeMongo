@@ -27,13 +27,6 @@
         <p><span class="fw-bold">Dessert:</span> {{dessert}}</p>
         <h2 class="text-end mb-2"> S./{{price}}</h2>
       </div>
-      <div class="d-flex justify-content-evenly">
-        <form action="/menus/delete/{{_id}}?_method=DELETE" method="POST">
-        <input type="hidden" name="method" value="DELETE"/>
-          <button id="delete-menu" class="btn btn-danger" type="submit">Delete</button>
-        </form>
-        
-      </div>
     </div>
   </div>
 {{/each}}
